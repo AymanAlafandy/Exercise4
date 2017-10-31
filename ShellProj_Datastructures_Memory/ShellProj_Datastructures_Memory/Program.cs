@@ -164,6 +164,7 @@ namespace ShellProj_Datastructures_Memory
                         }
                         else
                         {
+
                             Console.WriteLine("YOU CAN NOT DELETE ANYTHING " +
                                 "\nBECAUSE YOU HAVE NOTHING IN YOUR QUEUE LIST OF THINGS");
                             break;
