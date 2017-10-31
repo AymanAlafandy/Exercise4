@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace ShellProj_Datastructures_Memory
 {
     class Program
     {
+        
         //Ayman
         /// <summary>
         /// The main method, will handle the menues for the program
@@ -15,6 +17,10 @@ namespace ShellProj_Datastructures_Memory
         /// <param name="args"></param>
         static void Main()
         {
+            //foregroundColor
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            
+
             bool run = true;
             while (true)
             {
@@ -67,6 +73,46 @@ namespace ShellProj_Datastructures_Memory
         /// </summary>
         static void ExamineList()
         {
+            Console.Clear();
+            List<string> theTakingList = new List<string>();
+            while (true)
+            {
+                Console.Write("Enter - to decrease or " +
+                    "\nENTER + TO INCEASE YOUR LIST " +
+                    "\nENTER 0 TO GO MAIN MENU" +
+                    "\nENTER I FOR INFORMATION ABOUT YOUR LIST OF THINGS ");
+
+                string switchInput = Console.ReadLine();
+                switch (switchInput.ToUpper())
+                {
+                    case ("+"):
+                        Console.WriteLine("ADD A NAME TO YOUR LIST");
+                        string toTheList = Console.ReadLine();
+                        theTakingList.Add(toTheList);
+                        break;
+                    case ("-"):
+                        Console.WriteLine("DECREASE");
+                        theTakingList.Remove(Console.ReadLine());
+                        break;
+                    case ("I"):
+                        Console.WriteLine("THE NUMBER OF ELEMENTS IS:{0}\n" +
+                            "THE ELEMENTS ARE ", theTakingList.Count);
+                        foreach (string item in theTakingList)
+                        {
+                            Console.WriteLine(item);
+                        }
+                        break;
+                    case ("0"):
+                        return;
+                    default:
+                        Console.WriteLine("INVALID INPUT USE - OR +");
+
+                        Console.WriteLine("THE ELEMENTS OF YOUR LIST IS: "+ theTakingList.Count());
+                        break;
+                }
+
+            }
+            
             /*
              * Loop this method untill the user inputs something to exit to main menue.
              * Create a switch statement with cases '+' and '-'
@@ -90,6 +136,60 @@ namespace ShellProj_Datastructures_Memory
         /// </summary>
         static void ExamineQueue()
         {
+            Console.Clear();
+            Queue myFirstQueueInMyLife = new Queue();
+
+            while (true)
+            {
+            Console.WriteLine("ENTER PEOPLE IN THE QUEUE OF ICA"+
+                "\nWE WANT THEM TO REGISTER WHEN THEY BUY"+"\nENTER + TO ADD" +
+                "\nENTER - TO REMOVE \nENTER 0 TO EXIT TO MAIN MENU " +
+                "\nENTER I TO SHOW HOW MANY THINGS IS IN\n");
+                string userInputForSwitch = Console.ReadLine();
+                switch (userInputForSwitch.ToUpper())
+                {
+                    case ("+"):
+                        Console.WriteLine("ADD NAME");
+                        string inputForQueue = Console.ReadLine();
+                        myFirstQueueInMyLife.Enqueue(inputForQueue);
+                        Console.WriteLine("INPUT NUMBER {0} IS ADDED\n",myFirstQueueInMyLife.Count);
+                        break;
+                    case ("-"):
+                        if (myFirstQueueInMyLife.Count > 0)
+                        {
+                            myFirstQueueInMyLife.Dequeue();
+                            Console.WriteLine("YOUR LIST OF THINGS HADE DECERASED " +
+                                                        "\nTHE NUMBER OF THINGS IS {0}", myFirstQueueInMyLife.Count);
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("YOU CAN NOT DELETE ANYTHING " +
+                                "\nBECAUSE YOU HAVE NOTHING IN YOUR QUEUE LIST OF THINGS");
+                            break;
+                        }
+                        
+                    //case ("i"):
+                    case ("I"):
+                        Console.WriteLine("THE NUMBER OF THINGS IS: "+myFirstQueueInMyLife.Count+"\nHERE YOU GO!");
+                        foreach (string item in myFirstQueueInMyLife)
+                        {
+                            Console.WriteLine(item);
+                        }
+                        break;
+
+                    default:
+                        Console.WriteLine("INVALID INPUT. TRY AGAIN\n");
+                        break;
+
+                    case ("0"):
+                        return;
+                }
+
+            }
+
+
+
             /*
              * Loop this method untill the user inputs something to exit to main menue.
              * Create a switch with cases to enqueue items or dequeue items
@@ -102,6 +202,43 @@ namespace ShellProj_Datastructures_Memory
         /// </summary>
         static void ExamineStack()
         {
+            Console.Clear();
+            Stack myFirstStackInMyLife = new Stack();
+            while (true)
+            {
+                Console.WriteLine("ADD PEOPLE TO ICA:\n" +
+                    "PUT + INCREASE THE PEOPLE" + "\nPUT - TO REMOVE THE LAST ONE COME TO ICA" +
+                    "\nPUT 0 TO EXIT TO MAIN MENU");
+
+                string switchInPut = Console.ReadLine();
+                switch (switchInPut)
+                {
+                    case ("+"):
+                        Console.WriteLine("ENTER A NAME: ");
+                        string addInputToStack = Console.ReadLine();
+                        myFirstStackInMyLife.Push(addInputToStack);
+                        break;
+                    case ("-"):
+                        if (myFirstStackInMyLife.Count > 0)
+                        {
+                            Console.WriteLine("REMOVING THE LAST NAME: ");
+                            Console.WriteLine("YOU POPPED OR KICKED OUT : " + myFirstStackInMyLife.Pop());
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("YOU CAN NOT REMOVE NOTHING BEACAUSE THERE THE STACK IS EMPTY ");
+                            break;
+                        }
+
+                    case ("0"):
+                        return;
+                    default:
+                        Console.WriteLine("INVALID INPUT");
+                        break;
+                }
+
+            }
             /*
              * Loop this method until the user inputs something to exit to main menue.
              * Create a switch with cases to push or pop items
