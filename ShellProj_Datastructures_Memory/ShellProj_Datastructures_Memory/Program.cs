@@ -66,6 +66,7 @@ namespace ShellProj_Datastructures_Memory
         /// </summary>
         static void ExamineList()
         {
+            
             /*
              * Loop this method untill the user inputs something to exit to main menue.
              * Create a switch statement with cases '+' and '-'
