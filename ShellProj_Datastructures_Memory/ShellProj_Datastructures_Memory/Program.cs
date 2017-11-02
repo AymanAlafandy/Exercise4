@@ -18,7 +18,7 @@ namespace ShellProj_Datastructures_Memory
         static void Main()
         {
             bool run = true;
-            while (true)
+            while (run)
             {
 
                 Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
@@ -45,6 +45,7 @@ namespace ShellProj_Datastructures_Memory
                         ExamineList();
                          break;
                     case '2':
+                        Console.Clear();
                         ExamineQueue();
                         break;
                     case '3':
@@ -58,6 +59,7 @@ namespace ShellProj_Datastructures_Memory
                      * and iterative exercises.
                      */
                     case '0':
+                        Console.Clear();
                         return;
                     default:
                         Console.WriteLine("Please enter some valid input (0, 1, 2, 3, 4)");
@@ -87,13 +89,10 @@ namespace ShellProj_Datastructures_Memory
             {
             string input = Console.ReadLine();
 
-                if (input != " " || input != null)
+                //fixing the crach problem
+                if (input != "" && input != null)
                 {
-
-
-                   char nav = input[0];
-            
- 
+                    char nav = input[0];
                 switch (nav)
                 {
                     case '+':
@@ -101,30 +100,25 @@ namespace ShellProj_Datastructures_Memory
                         Console.Clear();
                         string value = input.Substring(1);
                         theList.Add(value);
-                        
-                        Console.WriteLine("You just added: " + value + " to the list.\n");
-                        Console.WriteLine("your capacity is:"+ theList.Capacity + "\nAnd your count is:" + theList.Count);
-                        
-                         break;
+                        Console.Write("your capacity is:"+ theList.Capacity + ". And your count is:" + theList.Count);
+                        foreach (var item in theList) { Console.WriteLine("\nPeople in the List: " + item); }   //showing the list
+                        break;
                     case '-':
                         Console.Clear();
                         string valueRe = input.Substring(1);
                         theList.Remove(valueRe);
-                        Console.WriteLine("You just removed: " + valueRe + " from the list.\n");
-                        Console.WriteLine("your capacity is:" + theList.Capacity + "\nAnd your count is:" + theList.Count);
-
+                        Console.WriteLine("your capacity is:" + theList.Capacity + ". And your count is:" + theList.Count);
+                        foreach (var item in theList) { Console.WriteLine("\nPeople in the List: " + item); }   //showing the list
                         break;
                     case '0':
                         return;
                     default:
                         Console.Clear();
-                        Console.WriteLine("You should use one of the following '+' or '-'.");
+                        Console.WriteLine("Please follow the instractions. By using '+' to add and '-' to remove."+
+                            "\nOr press '0' to return to the main menu. ");
                         break;
                 }
-
-
                 }
-               
             }
         }
         /// <summary>
@@ -137,25 +131,57 @@ namespace ShellProj_Datastructures_Memory
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
-            Console.WriteLine("ICA opens ant the queue is empty");
-            Console.ReadLine();
-              
-            //switch (navv)
-            //{
-            //    case '1':
+            Queue q = new Queue();
+            Console.WriteLine("Please use '+' To add a new one to the queue.\nAnd just '-'to remove the first person from the queue."+
+                "\nOr just press '0' to return to the main menu. ");
+            bool examinequeue = true;
+            while (examinequeue)
+            {
+                string NewUser = Console.ReadLine();
+                //!string.IsNullOrWhiteSpace(NewUser);
+                //check more about this above.
+                if (NewUser != "" && NewUser != null)
+                {
+                    char icaopen = NewUser[0]; 
+  
+                    switch (icaopen)
+                    {
+                        case '+':
+                            Console.Clear();
+                            string value = NewUser.Substring(1);
+                            q.Enqueue(value);
+                            Console.Write(value + " Is staying now in the Queue" +" "+ q.Count + " Persons at the queue.\n");
+                            foreach (var item in q) { Console.WriteLine("People in the Queue: " + item); }   //showing the list
+                            break;
 
-            //        break;
+                        case '-':
+                            if (q.Count > 0)
+                            {
+                            Console.Clear();
+                            q.Dequeue();
+                            Console.Write("One preson left the queue" +" " +q.Count + " Persons at the queue.\n");
+                            foreach (var item in q) { Console.WriteLine("People in the Queue: " + item); }   //showing the list in this case also
+                            break;         
+                            }
+                            else
+                            {
+                            Console.WriteLine("You don't have any one in the queue. " +
+                                      "Please insert someone first.");
+                                Console.ReadLine();
+                                break;
+                            }
+                        case '0':
+                            return;
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("Please follow the instractions. By using '+' to add and '-' to remove."+
+                                "\nOr press '0' to return to the main menu. ");
+                            break;
+                    }
+                }
+            }
 
-            //    case '2':
 
-            //        break;
-
-            //    case '0':
-            //        return;
-            //    default:
-            //        Console.WriteLine("You should do something valid ");
-            //        break;
-            //}
         }
 
         /// <summary>
