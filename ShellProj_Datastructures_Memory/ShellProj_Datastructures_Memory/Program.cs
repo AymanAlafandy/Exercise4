@@ -146,7 +146,7 @@ namespace ShellProj_Datastructures_Memory
   
                     switch (icaopen)
                     {
-                        case '+':
+                        case '+': // try to solve this. you can but it as default if you want to escape the + sembole.
                             Console.Clear();
                             string value = NewUser.Substring(1);
                             q.Enqueue(value);
@@ -194,21 +194,9 @@ namespace ShellProj_Datastructures_Memory
              * Create a switch with cases to push or pop items
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
-            //switch (nav)
-            //{
-            //    case '1':
-
-            //        break;
-            //    case '2':
-
-            //        break;
-
-            //    case '0':
-            //        return;
-            //    default:
-            //        Console.WriteLine("Insert something valid ");
-            //        break;
-            //}
+            
+            
+ 
         }
 
         static void CheckParanthesis()
