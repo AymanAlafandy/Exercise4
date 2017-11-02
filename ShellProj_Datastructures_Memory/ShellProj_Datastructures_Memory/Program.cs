@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ShellProj_Datastructures_Memory
 {
     class Program
@@ -49,6 +50,7 @@ namespace ShellProj_Datastructures_Memory
                         ExamineQueue();
                         break;
                     case '3':
+                        Console.Clear();
                         ExamineStack();
                         break;
                     case '4':
@@ -187,7 +189,7 @@ namespace ShellProj_Datastructures_Memory
         /// <summary>
         /// Examines the datastructure Stack
         /// </summary>
-        static void ExamineStack()
+        public static void ExamineStack()
         {
             /*
              * Loop this method until the user inputs something to exit to main menue.
@@ -195,10 +197,29 @@ namespace ShellProj_Datastructures_Memory
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
             
+            Console.WriteLine("Please tell us what do you think");
             
- 
+            Stack<string> st = new Stack<string>();
+            string userINput = Console.ReadLine();
+            st.Push(userINput);
+            //Console.WriteLine("You had inserted: "+ st);
+            //Stack<char> reserve = new Stack<char>(userINput.ToCharArray());
+            //Console.WriteLine("Your text is: ");
+            //while (reserve.Count > 0)
+            //{
+            //    Console.WriteLine(reserve.Pop());
+            //}
+
+            Console.WriteLine("You have insert: " );
+            st.Pop();
+            foreach (string item in st)
+            {
+                Console.WriteLine(item+"\n");
+            }
+
         }
 
+ 
         static void CheckParanthesis()
         {
             /*
