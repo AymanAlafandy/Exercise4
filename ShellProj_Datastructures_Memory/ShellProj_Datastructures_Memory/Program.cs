@@ -18,7 +18,7 @@ namespace ShellProj_Datastructures_Memory
         static void Main()
         {
             bool run = true;
-            while (true)
+            while (true) 
             {
 
                 Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
