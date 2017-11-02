@@ -85,21 +85,21 @@ namespace ShellProj_Datastructures_Memory
             bool examinelist = true;
             while (examinelist)
             {
-                string input = Console.ReadLine();
+                string stringInput = Console.ReadLine();// المستخدم يدخل شيئاً ما
 
-                if (input != " " || input != null)
+                if (stringInput != "" && stringInput != null)// نتحقق من أن الإدخال ليسَ "لا شيء" ز
                 {
 
 
-                    char nav = input[0];
+                    char charOfStringInput = stringInput[0];
 
 
-                    switch (nav)
+                    switch (charOfStringInput)
                     {
                         case '+':
 
                             Console.Clear();
-                            string value = input.Substring(1);
+                            string value = stringInput.Substring(1);
                             theList.Add(value);
 
                             Console.WriteLine("You just added: " + value + " to the list.\n");
@@ -108,7 +108,7 @@ namespace ShellProj_Datastructures_Memory
                             break;
                         case '-':
                             Console.Clear();
-                            string valueRe = input.Substring(1);
+                            string valueRe = stringInput.Substring(1);
                             theList.Remove(valueRe);
                             Console.WriteLine("You just removed: " + valueRe + " from the list.\n");
                             Console.WriteLine("your capacity is:" + theList.Capacity + "\nAnd your count is:" + theList.Count);
