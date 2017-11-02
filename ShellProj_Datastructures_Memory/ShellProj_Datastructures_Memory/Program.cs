@@ -127,7 +127,6 @@ namespace ShellProj_Datastructures_Memory
                
             }
         }
-
         /// <summary>
         /// Examines the datastructure Queue
         /// </summary>
