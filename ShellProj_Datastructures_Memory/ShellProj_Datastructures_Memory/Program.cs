@@ -43,7 +43,7 @@ namespace ShellProj_Datastructures_Memory
                         Console.Clear();
                         Console.WriteLine("Please add or remove somthing from the list using '+' or '-'. ");
                         ExamineList();
-                         break;
+                        break;
                     case '2':
                         ExamineQueue();
                         break;
@@ -85,46 +85,46 @@ namespace ShellProj_Datastructures_Memory
             bool examinelist = true;
             while (examinelist)
             {
-            string input = Console.ReadLine();
+                string input = Console.ReadLine();
 
                 if (input != " " || input != null)
                 {
 
 
-                   char nav = input[0];
-            
- 
-                switch (nav)
-                {
-                    case '+':
+                    char nav = input[0];
 
-                        Console.Clear();
-                        string value = input.Substring(1);
-                        theList.Add(value);
-                        
-                        Console.WriteLine("You just added: " + value + " to the list.\n");
-                        Console.WriteLine("your capacity is:"+ theList.Capacity + "\nAnd your count is:" + theList.Count);
-                        
-                         break;
-                    case '-':
-                        Console.Clear();
-                        string valueRe = input.Substring(1);
-                        theList.Remove(valueRe);
-                        Console.WriteLine("You just removed: " + valueRe + " from the list.\n");
-                        Console.WriteLine("your capacity is:" + theList.Capacity + "\nAnd your count is:" + theList.Count);
 
-                        break;
-                    case '0':
-                        return;
-                    default:
-                        Console.Clear();
-                        Console.WriteLine("You should use one of the following '+' or '-'.");
-                        break;
+                    switch (nav)
+                    {
+                        case '+':
+
+                            Console.Clear();
+                            string value = input.Substring(1);
+                            theList.Add(value);
+
+                            Console.WriteLine("You just added: " + value + " to the list.\n");
+                            Console.WriteLine("your capacity is:" + theList.Capacity + "\nAnd your count is:" + theList.Count);
+
+                            break;
+                        case '-':
+                            Console.Clear();
+                            string valueRe = input.Substring(1);
+                            theList.Remove(valueRe);
+                            Console.WriteLine("You just removed: " + valueRe + " from the list.\n");
+                            Console.WriteLine("your capacity is:" + theList.Capacity + "\nAnd your count is:" + theList.Count);
+
+                            break;
+                        case '0':
+                            return;
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("You should use one of the following '+' or '-'.");
+                            break;
+                    }
+
+
                 }
 
-
-                }
-               
             }
         }
 
@@ -133,14 +133,122 @@ namespace ShellProj_Datastructures_Memory
         /// </summary>
         static void ExamineQueue()
         {
+            Console.Clear();
+
+            Queue myFirstQueueInMyLife = new Queue();
+
+
+
+            while (true)
+
+            {
+
+                Console.WriteLine("ENTER PEOPLE IN THE QUEUE OF ICA" +
+
+                    "\nWE WANT THEM TO REGISTER WHEN THEY BUY" + "\nENTER + TO ADD" +
+
+                    "\nENTER - TO REMOVE \nENTER 0 TO EXIT TO MAIN MENU " +
+
+                    "\nENTER I TO SHOW HOW MANY THINGS IS IN" +
+                    "\nENTER C TO CLEAR THE WINDOW!\n");
+
+                string userInputForSwitch = Console.ReadLine();
+
+                switch (userInputForSwitch.ToUpper())
+
+                {
+
+                    case ("+"):
+
+                        Console.WriteLine("ADD NAME");
+
+                        string inputForQueue = Console.ReadLine();
+
+                        myFirstQueueInMyLife.Enqueue(inputForQueue);
+
+                        Console.WriteLine("SECSEED!!!\nYOUR INPUT IS NOW IN THE QUEUE, AND ITS NUMBER IS {0}\n", myFirstQueueInMyLife.Count);
+
+                        break;
+
+                    case ("-"):
+
+                        if (myFirstQueueInMyLife.Count > 0)
+
+                        {
+
+
+                            Console.WriteLine("YOUR LIST OF THINGS HADE DECERASED " +
+
+                                                        "\nYOU KICKED OUT {0}\t;) \nTHE NUMBER OF THINGS IS {1}\n"
+                                                        , myFirstQueueInMyLife.Dequeue() ,myFirstQueueInMyLife.Count );
+
+                            break;
+
+                        }
+
+                        else
+
+                        {
+
+
+
+                            Console.WriteLine("YOU CAN NOT DELETE ANYTHING " +
+
+                                "\nBECAUSE YOU HAVE NOTHING IN YOUR QUEUE LIST OF THINGS");
+
+                            break;
+
+                        }
+
+                    case "C":
+                        Console.Clear();
+                        Console.WriteLine("CLEARING IS DONE!\n");
+                        break;
+
+                    //case ("i"):
+
+                    case ("I"):
+                        //Console.Clear();  @@@User can use C choise instead!!! 
+                        Console.WriteLine("THE NUMBER OF THINGS IS: " + myFirstQueueInMyLife.Count + "\nHERE YOU GO!");
+
+                        foreach (string item in myFirstQueueInMyLife)
+
+                        {
+
+                            Console.WriteLine(item);
+
+                        }
+                        Console.WriteLine();
+
+                        break;
+
+
+
+                    default:
+
+                        Console.WriteLine("INVALID INPUT. TRY AGAIN\n");
+
+                        break;
+
+
+
+                    case ("0"):
+
+                        return;
+
+                }
+
+
+
+            }
+
             /*
              * Loop this method untill the user inputs something to exit to main menue.
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
-            Console.WriteLine("ICA opens ant the queue is empty");
-            Console.ReadLine();
-              
+
+
             //switch (navv)
             //{
             //    case '1':
