@@ -11,7 +11,6 @@ namespace ShellProj_Datastructures_Memory
     class Program
     {
 
-
         /// <summary>
         /// The main method, will handle the menues for the program
         /// </summary>
@@ -69,7 +68,6 @@ namespace ShellProj_Datastructures_Memory
                 }
             }
         }
-
         /// <summary>
         /// Examines the datastructure List
         /// </summary>
@@ -90,8 +88,6 @@ namespace ShellProj_Datastructures_Memory
             while (examinelist)
             {
             string input = Console.ReadLine();
-
-                //fixing the crach problem
                 if (input != "" && input != null)
                 {
                     char nav = input[0];
@@ -148,12 +144,12 @@ namespace ShellProj_Datastructures_Memory
   
                     switch (icaopen)
                     {
-                        case '+': // try to solve this. you can but it as default if you want to escape the + sembole.
+                        case '+':  
                             Console.Clear();
                             string value = NewUser.Substring(1);
                             q.Enqueue(value);
                             Console.Write(value + " Is staying now in the Queue" +" "+ q.Count + " Persons at the queue.\n");
-                            foreach (var item in q) { Console.WriteLine("People in the Queue: " + item); }   //showing the list
+                            foreach (var item in q) { Console.WriteLine("People in the Queue: " + item); }   
                             break;
 
                         case '-':
@@ -162,7 +158,7 @@ namespace ShellProj_Datastructures_Memory
                             Console.Clear();
                             q.Dequeue();
                             Console.Write("One preson left the queue" +" " +q.Count + " Persons at the queue.\n");
-                            foreach (var item in q) { Console.WriteLine("People in the Queue: " + item); }   //showing the list in this case also
+                            foreach (var item in q) { Console.WriteLine("People in the Queue: " + item); } 
                             break;         
                             }
                             else
@@ -182,10 +178,7 @@ namespace ShellProj_Datastructures_Memory
                     }
                 }
             }
-
-
         }
-
         /// <summary>
         /// Examines the datastructure Stack
         /// </summary>
@@ -198,28 +191,20 @@ namespace ShellProj_Datastructures_Memory
             */
             
             Console.WriteLine("Please tell us what do you think");
-            
-            Stack<string> st = new Stack<string>();
             string userINput = Console.ReadLine();
-            st.Push(userINput);
-            //Console.WriteLine("You had inserted: "+ st);
-            //Stack<char> reserve = new Stack<char>(userINput.ToCharArray());
-            //Console.WriteLine("Your text is: ");
-            //while (reserve.Count > 0)
-            //{
-            //    Console.WriteLine(reserve.Pop());
-            //}
-
-            Console.WriteLine("You have insert: " );
-            st.Pop();
-            foreach (string item in st)
+            Stack<char> st = new Stack<char>();
+            
+            foreach (char itemm in userINput)
             {
-                Console.WriteLine(item+"\n");
+                st.Push(itemm);
+
             }
-
+            while (st.Count > 0)       // the while take áll the chars and pop them.
+                // we can't use foreach here, because after we pop stack changes
+            {
+                Console.WriteLine(st.Pop());
+            }
         }
-
- 
         static void CheckParanthesis()
         {
             /*
