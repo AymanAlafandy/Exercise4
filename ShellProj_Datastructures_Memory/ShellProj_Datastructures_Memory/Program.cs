@@ -18,7 +18,7 @@ namespace ShellProj_Datastructures_Memory
         static void Main()
         {
             bool run = true;
-            while (true) 
+            while (true)
             {
 
                 Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
@@ -43,7 +43,7 @@ namespace ShellProj_Datastructures_Memory
                         Console.Clear();
                         Console.WriteLine("Please add or remove somthing from the list using '+' or '-'. ");
                         ExamineList();
-                         break;
+                        break;
                     case '2':
                         ExamineQueue();
                         break;
@@ -85,46 +85,46 @@ namespace ShellProj_Datastructures_Memory
             bool examinelist = true;
             while (examinelist)
             {
-            string input = Console.ReadLine();
+                string input = Console.ReadLine();
 
-                if (input != " " || input != null)
+                if (input != " " && input != null)
                 {
 
 
-                   char nav = input[0];
-            
- 
-                switch (nav)
-                {
-                    case '+':
+                    char nav = input[0];
 
-                        Console.Clear();
-                        string value = input.Substring(1);
-                        theList.Add(value);
-                        
-                        Console.WriteLine("You just added: " + value + " to the list.\n");
-                        Console.WriteLine("your capacity is:"+ theList.Capacity + "\nAnd your count is:" + theList.Count);
-                        
-                         break;
-                    case '-':
-                        Console.Clear();
-                        string valueRe = input.Substring(1);
-                        theList.Remove(valueRe);
-                        Console.WriteLine("You just removed: " + valueRe + " from the list.\n");
-                        Console.WriteLine("your capacity is:" + theList.Capacity + "\nAnd your count is:" + theList.Count);
 
-                        break;
-                    case '0':
-                        return;
-                    default:
-                        Console.Clear();
-                        Console.WriteLine("You should use one of the following '+' or '-'.");
-                        break;
+                    switch (nav)
+                    {
+                        case '+':
+
+                            Console.Clear();
+                            string value = input.Substring(1);
+                            theList.Add(value);
+
+                            Console.WriteLine("You just added: " + value + " to the list.\n");
+                            Console.WriteLine("your capacity is:" + theList.Capacity + "\nAnd your count is:" + theList.Count);
+
+                            break;
+                        case '-':
+                            Console.Clear();
+                            string valueRe = input.Substring(1);
+                            theList.Remove(valueRe);
+                            Console.WriteLine("You just removed: " + valueRe + " from the list.\n");
+                            Console.WriteLine("your capacity is:" + theList.Capacity + "\nAnd your count is:" + theList.Count);
+
+                            break;
+                        case '0':
+                            return;
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("You should use one of the following '+' or '-'.");
+                            break;
+                    }
+
+
                 }
 
-
-                }
-               
             }
         }
 
@@ -140,7 +140,7 @@ namespace ShellProj_Datastructures_Memory
             */
             Console.WriteLine("ICA opens ant the queue is empty");
             Console.ReadLine();
-              
+
             //switch (navv)
             //{
             //    case '1':
@@ -164,28 +164,88 @@ namespace ShellProj_Datastructures_Memory
         /// </summary>
         static void ExamineStack()
         {
-            /*
-             * Loop this method until the user inputs something to exit to main menue.
-             * Create a switch with cases to push or pop items
-             * Make sure to look at the stack after pushing and and poping to see how it behaves
-            */
-            //switch (nav)
-            //{
-            //    case '1':
+            Console.Clear();
 
-            //        break;
-            //    case '2':
+            Stack myFirstStackInMyLife = new Stack();
 
-            //        break;
+            while (true)
 
-            //    case '0':
-            //        return;
-            //    default:
-            //        Console.WriteLine("Insert something valid ");
-            //        break;
-            //}
+            {
+
+                Console.WriteLine("ADD THINGS TO THE STACK\n" +
+                    "PUT + AT THE BIGENING OF YOU WORD TO INCREASE THE ELEMENTS OF THE STACK" +
+                    "\nPUT - TO REMOVE THE LAST INPUT" +
+                    "\nPUT 0 TO EXIT TO MAIN MENU\n");
+
+                string switchAndPlusInPut = Console.ReadLine();
+                if (switchAndPlusInPut != null && switchAndPlusInPut!="")
+                {
+                    switch (switchAndPlusInPut[0])
+                    {
+                        case '+':
+                            myFirstStackInMyLife.Push(switchAndPlusInPut.Substring(1));
+                            Console.WriteLine("ENTERING SECSEED!!!\n");
+                            break;
+                        case '-':
+                            if (myFirstStackInMyLife.Count > 0)
+                            {
+                                Console.WriteLine("REMOVING THE LAST NAME: ");
+                                Console.WriteLine("YOU POPPED OR KICKED OUT : " + myFirstStackInMyLife.Pop());
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("YOU CAN NOT REMOVE NOTHING BEACAUSE THERE THE STACK IS EMPTY ");
+                                break;
+                            }
+                        case ('='):
+                            Console.WriteLine("THE NUMBER OF ELEMENTS IS:{0}\n" +
+                                    "THE ELEMENTS ARE ", myFirstStackInMyLife.Count);
+                            foreach (string item in myFirstStackInMyLife)
+                            {
+                            //char[] charArrayforreversingString = item.Reverse(); 
+                                
+                                Console.WriteLine(item.Reverse());
+                            }
+                            Console.WriteLine();
+                            break;
+                        case '0':
+                            return;
+                        case (' '):
+                            break;
+                        default:
+                            Console.WriteLine("INVALID INPUT");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("YOU SOULD PUT SOMETHING!!!");
+                }
+                /*
+                 * Loop this method until the user inputs something to exit to main menue.
+                 * Create a switch with cases to push or pop items
+                 * Make sure to look at the stack after pushing and and poping to see how it behaves
+                */
+                //switch (nav)
+                //{
+                //    case '1':
+
+                //        break;
+                //    case '2':
+
+                //        break;
+
+                //    case '0':
+                //        return;
+                //    default:
+                //        Console.WriteLine("Insert something valid ");
+                //        break;
+                //}
+            }
+
+
         }
-
         static void CheckParanthesis()
         {
             /*
@@ -194,6 +254,5 @@ namespace ShellProj_Datastructures_Memory
              * Example of incorrect: (()]), [), {[()}]
              */
         }
-
     }
 }
