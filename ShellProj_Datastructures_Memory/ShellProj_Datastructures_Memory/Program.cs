@@ -12,7 +12,7 @@ namespace ShellProj_Datastructures_Memory
     {
 
         /// <summary>
-        /// The main method, will handle the menues for the program
+        /// The main method, will handle the menues for the program         //this called xml document comments for the class
         /// </summary>
         /// <param name="args"></param>
         static void Main()
@@ -205,6 +205,8 @@ namespace ShellProj_Datastructures_Memory
                 Console.WriteLine(st.Pop());
             }
         }
+
+
         static void CheckParanthesis()
         {
             /*
@@ -212,6 +214,64 @@ namespace ShellProj_Datastructures_Memory
              * Example of correct: (()), {}, [({})]
              * Example of incorrect: (()]), [), {[()}]
              */
+
+            bool error = false;
+            string str = Console.ReadLine();
+            Stack<char> stack = new Stack<char>();
+            foreach (var item in str.ToCharArray())
+            {
+                if (item == '(' || item == '{' || item == '[')
+                {
+                    stack.Push(item);
+                }
+                else if (item == ')' || item == '}' || item == ']')
+                {
+                    if (stack.Peek() != GetComplementBracket(item))
+                    {
+                        error = true;
+                        break;
+                    }
+                }
+            }
+
+            if (error)
+                Console.WriteLine("Incorrect brackets");
+            else
+                Console.WriteLine
+                    ("     -----------------\n" +
+                    "    ----------------------\n" +
+                    "  --------------------------\n"+
+                    "---The string is well formed---" +
+                    "\n -------------------------"+
+                    "\n   ---------------------"+
+                    "\n      ----------------");
+            Console.ReadLine();
+        }
+
+        private static char GetComplementBracket(char item)
+        {
+
+            switch (item)
+            {
+                case ')':
+                    return '(';
+                case '}':
+                    return '{';
+                case ']':
+                    return '[';
+                default:
+                    return ' ';
+            }
+
+
+        }
+        private static void ExamineRecursion()
+        {
+
+        }
+        private static void ExamineIteration()
+        {
+
         }
 
     }
